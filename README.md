@@ -1,2 +1,0 @@
-# arterize
-PWA For artists
