@@ -16,5 +16,6 @@ export class TabsPage implements OnInit {
     this.tabs.select('feed')
   }
 
+  
 
 }

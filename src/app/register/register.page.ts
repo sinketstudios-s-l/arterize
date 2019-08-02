@@ -12,8 +12,9 @@ import { Router } from '@angular/router';
 })
 export class RegisterPage implements OnInit {
 
-  email: string =""
-  passwd: string =""
+  username: string
+  email: string
+  passwd: string 
   constructor(
     public afAuth: AngularFireAuth,
     public alert: AlertController,
@@ -30,7 +31,7 @@ export class RegisterPage implements OnInit {
     try {
 
         const res = await this.afAuth.auth.createUserWithEmailAndPassword(email, passwd)
-        console.log(res)
+        console.log(res + 'username: ' + this.username)
 
         this.showAlert('Success', 'Welcome to Arterize')
         this.router.navigate(['/tabs'])
