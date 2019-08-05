@@ -1,6 +1,12 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start" >
+          <ion-icon slot="icon-only" name="search"></ion-icon>
+        </ion-buttons>
     <ion-title class="brand-name">Arterize</ion-title>
+      <ion-buttons slot="end" (click)="openChat()">
+        <ion-icon slot="icon-only" name="send"></ion-icon>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
