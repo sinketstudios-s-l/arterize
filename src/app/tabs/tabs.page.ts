@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonTabs } from '@ionic/angular';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabs',
@@ -10,19 +8,11 @@ import { Router } from '@angular/router';
 })
 export class TabsPage implements OnInit {
 
-  @ViewChild('tabs', {static: true}) tabs: IonTabs
+	@ViewChild('tabs') tabs: IonTabs
 
-  constructor(
-    private afAuth: AngularFireAuth,
-    public route: Router) { }
+	constructor() { }
 
-  ngOnInit() {
-    
-    this.tabs.select('feed')
-    
-  }
-
-
-  
-
+	ngOnInit() {
+		this.tabs.select('feed')
+	}
 }

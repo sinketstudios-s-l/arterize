@@ -1,0 +1,24 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" default-href="../tabs/profile" (click)="backBtn()"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Photo</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<app-loading *ngIf="!post"></app-loading>
+
+	<ion-card class="post-card" *ngIf="post as postData">
+		<ion-img src="https://ucarecdn.com/{{ postID }}/-/preview/{{ effect }}"></ion-img>
+		<ion-card-content>
+			<span><b>{{ username }}:</b> {{ postData.desc }}</span>
+			<p></p>
+		</ion-card-content>
+		<ion-item (click)="toggleHeart()">
+			<ion-icon [name]="heartType"></ion-icon>
+		</ion-item>
+	</ion-card>
+</ion-content>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feed',
@@ -8,16 +7,9 @@ import { Router } from '@angular/router';
 })
 export class FeedPage implements OnInit {
 
-  constructor(public route: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
-
-  openChat(){
-    
-    this.route.navigate(['../chat'])
-
-  }
-
 
 }

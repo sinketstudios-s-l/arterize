@@ -1,0 +1,40 @@
+#images {
+	display: inline-flex;
+	width: 100%;
+}
+
+.image {
+	width: 100%;
+	margin-left: 1px;
+	margin-right: 1px;
+}
+
+.main-image {
+	width: 33,3%;
+}
+
+.followBtn{
+	margin: 0 auto;
+}
+
+.userStats{
+	width: 100%;
+	padding:0;
+	margin: 0 auto;
+	height: 50px;
+	background: #f2f2f2;
+	text-align: center;
+}
+
+.userImgProf{
+	width: 100px;
+	margin: 0 auto;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.text-muted{
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #858585;
+}
