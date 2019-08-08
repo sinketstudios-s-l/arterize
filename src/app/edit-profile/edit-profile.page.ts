@@ -22,7 +22,7 @@ export class EditProfilePage implements OnInit {
 
 	busy: boolean = false
 
-	@ViewChild('fileBtn') fileBtn: {
+	@ViewChild('fileBtn', {static: true}) fileBtn: {
 		nativeElement: HTMLInputElement
 	}
 
