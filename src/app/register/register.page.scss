@@ -1,0 +1,54 @@
+@font-face{
+    font-family: 'Arterize';
+    src: url('../../assets/fonts/Arterize.otf');
+}
+
+
+.logingPage{
+    width: 100%;
+    height: 100vh;
+    --overflow: hidden;
+
+    --background: url('../../assets/shape.jpg');
+    --background-repeat: no-repeat ;
+    --background-size: 100%;
+    --background-position-y: bottom;
+    --background-position-x: right;
+    
+
+    position: relative;
+}
+
+.regForm{
+    width: 80%;
+    padding: 20px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.regTitle{
+    font-family: 'Arterize';
+    font-size: 75px;
+    text-align: center;
+
+}
+
+.inp{
+    --background: #ffffffc9;
+    margin-top: 1rem;
+    border:1px solid #ebebeb;
+    border-radius: 5px;
+}
+
+.logDiv{
+    margin-top: .5rem;
+    text-align: center;
+    color: #0000009d;
+}
+
+.logDiv a{
+    text-decoration: none;
+    color: gold;
+}

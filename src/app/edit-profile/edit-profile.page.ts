@@ -67,6 +67,10 @@ export class EditProfilePage implements OnInit {
 		})
 	}
 
+	logOut(){
+		
+	}
+
 	async presentAlert(title: string, content: string) {
 		const alert = await this.alertController.create({
 			header: title,
