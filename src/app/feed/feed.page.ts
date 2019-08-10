@@ -12,4 +12,8 @@ export class FeedPage implements OnInit {
   ngOnInit() {
   }
 
+  doRefresh(event){
+    event.target.complete();
+  }
+
 }

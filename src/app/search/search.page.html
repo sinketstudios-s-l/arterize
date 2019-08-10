@@ -1,19 +1,19 @@
 <ion-header>
   <ion-toolbar mode="ios">
-    <ion-searchbar mode="ios" show-cancel-button="focus" [(ngModel)]="searchterm" (keydown)="search($event)"></ion-searchbar>
+    <ion-searchbar animated mode="ios" show-cancel-button="focus" [(ngModel)]="searchterm" (ionChange)="search($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
 
-  <ion-item *ngFor="let username of users ">
+  <ion-item *ngFor="let user of users" (click)="userProf($event)">
     <ion-avatar>
-      <img src="{{users.profilePic}}" alt="">
+      <img src="https://ucarecdn.com/{{ user.profilePic }}" alt="">
     </ion-avatar>
     <ion-label>
-      <ion-note>
-          {{users.username}}
-      </ion-note>
+      
+          {{user.username}}
+
     </ion-label>
   </ion-item>
 

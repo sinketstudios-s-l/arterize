@@ -9,4 +9,8 @@
 
 <ion-content padding>
 
+  <ion-refresher slot="fixed" (ionRefresher)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
 </ion-content>

@@ -27,7 +27,7 @@ import { FormsModule } from '@angular/forms';
 	  AppRoutingModule,
 	  AngularFireModule.initializeApp(firebaseConfig),
 	  AngularFireAuthModule,
-	  AngularFirestoreModule,
+	  AngularFirestoreModule.enablePersistence(),
 	  HttpModule,
 	  ShareModule,
 	  FormsModule
