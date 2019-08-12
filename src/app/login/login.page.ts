@@ -19,15 +19,14 @@ export class LoginPage implements OnInit {
 	constructor(
 		public afAuth: AngularFireAuth, 
 		public user: UserService, 
-		public router: Router, 
+		public router: Router,
 		private alertCtrl: AlertController) { }
 
 	ngOnInit() {
-
-		console.log(sessionStorage.getItem('isLogged'))
-		if(sessionStorage.getItem('isLogged') == '1'){
+		if(this.user.isAuthenticated ){
 			this.router.navigate(['/tabs'])
-		}
+		} 
+		
 	}
 
 	async presentAlert(title: string, content: string) {
@@ -55,7 +54,7 @@ export class LoginPage implements OnInit {
 				})
 				this.router.navigate(['/tabs'])
 				
-				sessionStorage.setItem('isLogged','1')
+				
 				
 
 			}
