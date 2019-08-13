@@ -12,4 +12,9 @@ export class NotificationsPage implements OnInit {
   ngOnInit() {
   }
 
+
+  segmentChanged(event){
+    console.log(event.target.value)
+  }
+
 }

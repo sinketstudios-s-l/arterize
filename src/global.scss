@@ -24,3 +24,16 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+.text-muted{
+    color: #00000055;
+}
+
+.inp{
+    width: 100%;
+    border: 1px solid #00000055;
+    background: #f1f1f1;
+    padding: 100px 10px;
+    border-radius: 5px;
+}

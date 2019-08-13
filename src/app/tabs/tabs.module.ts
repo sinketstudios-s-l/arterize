@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { TabsPage } from './tabs.page';
 import { TabsRoutingModule } from './tabs.router.module'
+import { UploaderPageModule } from '../uploader/uploader.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { TabsRoutingModule } from './tabs.router.module'
     CommonModule,
     FormsModule,
 	IonicModule,
-	TabsRoutingModule
+  TabsRoutingModule,
+  UploaderPageModule
   ],
   declarations: [TabsPage]
 })

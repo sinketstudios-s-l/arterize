@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore'
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { EditProfilePage } from '../edit-profile/edit-profile.page';
 
 @Component({
 	selector: 'app-page',
@@ -17,7 +19,7 @@ export class ProfilePage implements OnInit {
 	username: string
 	profilePic: string
 
-	constructor(private afs: AngularFirestore, private user: UserService, private router: Router) {
+	constructor(private afs: AngularFirestore, private user: UserService, private router: Router, public modalCtrl: ModalController) {
 		this.mainuser = afs.doc(`users/${user.getUID()}`)
 		this.sub = this.mainuser.valueChanges().subscribe(event => {
 			this.posts = event.posts
@@ -37,5 +39,13 @@ export class ProfilePage implements OnInit {
 
 	ngOnInit() {
 	}
+
+	async editProfModal(){
+		const result = await this.modalCtrl.create({
+			component: EditProfilePage,
+		})
+		await result.present();
+	}
+	
 
 }

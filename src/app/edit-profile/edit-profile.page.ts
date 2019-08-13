@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController, ActionSheetController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 	templateUrl: './edit-profile.page.html',
 	styleUrls: ['./edit-profile.page.scss'],
 })
-export class EditProfilePage implements OnInit {
+export class EditProfilePage {
 
 	mainuser: AngularFirestoreDocument
 	sub
@@ -22,16 +22,15 @@ export class EditProfilePage implements OnInit {
 
 	busy: boolean = false
 
-	@ViewChild('fileBtn', {static: true}) fileBtn: {
-		nativeElement: HTMLInputElement
-	}
 
 	constructor(
 		private http: Http, 
 		private afs: AngularFirestore,
 		private router: Router,
 		private alertController: AlertController,
-		private user: UserService) {
+		private user: UserService,
+		public modalCtrl: ModalController,
+		public actionSheetCtrl: ActionSheetController) {
 		this.mainuser = afs.doc(`users/${user.getUID()}`)
 		this.sub = this.mainuser.valueChanges().subscribe(event => {
 			this.username = event.username
@@ -39,15 +38,32 @@ export class EditProfilePage implements OnInit {
 		})
 	}
 
-	ngOnInit() {
+	async cancelUpdate(){
+
+		const actionSheet = await this.actionSheetCtrl.create({
+			buttons: [{
+				text: 'Close',
+				role: 'destructive',
+			  handler: () => {
+				this.modalCtrl.dismiss()
+			  }
+			}, {
+			  text: 'Cancel',
+			  role: 'cancel',
+			  handler: () => {}
+
+			}]
+		  });
+		  await actionSheet.present();
 	}
+
 
 	ngOnDestroy() {
 		this.sub.unsubscribe()
 	}
 
 	updateProfilePic() {
-		this.fileBtn.nativeElement.click()
+
 	}
 
 	uploadPic(event) {

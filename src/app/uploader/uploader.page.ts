@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
 import { firestore } from 'firebase/app';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 
@@ -31,21 +31,24 @@ export class UploaderPage implements OnInit {
 	activeEffect: string = this.effects.effect1
 	busy: boolean = false
 
-<<<<<<< HEAD
-	@ViewChild('cameraPreview', {static: true}) cameraPreview
-=======
-	@ViewChild('fileButton', {static: true}) fileButton
->>>>>>> parent of 6943b0f3... camera
+
 
 	constructor(
 		public http: Http,
 		public afstore: AngularFirestore,
 		public user: UserService,
 		private alertController: AlertController,
-		private router: Router) { }
+		private router: Router,
+		public modalCtrl: ModalController) { }
 
 	ngOnInit() {
 	}
+
+	modalClose(){
+		this.modalCtrl.dismiss()
+	}
+
+
 
 	async createPost() {
 		this.busy = true
@@ -69,8 +72,6 @@ export class UploaderPage implements OnInit {
 		this.imageURL = ""
 		this.desc = ""
 
-
-
 		const alert = await this.alertController.create({
 			header: 'Done',
 			message: 'Your post was created!',
@@ -82,6 +83,7 @@ export class UploaderPage implements OnInit {
 		this.router.navigate(['/tabs/feed'])
 	}
 
+	
 	setSelected(effect: string) {
 		this.activeEffect = this.effects[effect]
 	}

@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { ProfilePage } from './profile.page';
 import { ShareModule } from '../share.module';
+import { EditProfilePageModule } from '../edit-profile/edit-profile.module';
+import { EditProfilePage } from '../edit-profile/edit-profile.page';
 
 const routes: Routes = [
   {
@@ -16,12 +18,16 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents: [
+    EditProfilePage
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
 	RouterModule.forChild(routes),
-	ShareModule
+  ShareModule,
+  EditProfilePageModule
   ],
   declarations: [ProfilePage]
 })
