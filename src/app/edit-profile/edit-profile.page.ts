@@ -40,11 +40,10 @@ export class EditProfilePage implements OnInit {
 	}
 
 	ngOnInit() {
-		
 	}
 
 	ngOnDestroy() {
-
+		this.sub.unsubscribe()
 	}
 
 	updateProfilePic() {
@@ -69,14 +68,6 @@ export class EditProfilePage implements OnInit {
 	}
 
 	logOut(){
-		if(this.user.isAuthenticated){
-
-			if(this.sub.unsubscribe() ){
-				this.router.navigate(['/login'])
-				console.log('bye' + this.sub)
-			}
-			console.log(this.sub)
-		}
 		
 	}
 

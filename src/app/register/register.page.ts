@@ -27,9 +27,6 @@ export class RegisterPage implements OnInit {
 		) { }
 
 	ngOnInit() {
-		if(this.user.isAuthenticated ){
-			this.router.navigate(['/tabs'])
-		} 
 	}
 
 	async presentAlert(title: string, content: string) {

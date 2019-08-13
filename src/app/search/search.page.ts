@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Subject, combineLatest } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
 
 
 
@@ -27,7 +26,7 @@ export class SearchPage implements OnInit {
   
   profilePic: string
 
-  constructor(private afs: AngularFirestore, private router: Router, private user: UserService) { 
+  constructor(private afs: AngularFirestore, private router: Router) { 
     
   
   }
@@ -54,14 +53,8 @@ export class SearchPage implements OnInit {
     return this.afs.collection('users', ref => ref.limit(10).orderBy('username').startAt(start).endAt(end)).valueChanges();
   }
 
-
-  userProf( event ){
-    
-    const uName: string = event.target.id
-
-    console.log(uName)
-
-    this.router.navigate([`profile/${uName}`])
+  userProf(event){
+    console.log(event)
   }
 
 
