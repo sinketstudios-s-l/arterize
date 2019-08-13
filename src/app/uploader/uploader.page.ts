@@ -2,9 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
 import { firestore } from 'firebase/app';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
+import { CameraPreviewOptions, CameraPreviewPictureOptions } from '@ionic-native/camera-preview';
 
 
 @Component({
@@ -17,6 +18,21 @@ export class UploaderPage implements OnInit {
 	imageURL: string
 	desc: string
 	noFace: boolean = false
+
+	picture:string;
+	cameraOpts: CameraPreviewOptions = {
+		x:0,
+		y:0,
+		width: window.innerWidth,
+		height: window.innerHeight,
+		toBack: true
+	}
+
+	cameraPicOpts: CameraPreviewPictureOptions = {
+		width: window.innerWidth,
+		height: window.innerHeight,
+		quality: 100
+	}
 	
 	scaleCrop: string = '-/scale_crop/200x200'
 	
@@ -31,17 +47,48 @@ export class UploaderPage implements OnInit {
 	activeEffect: string = this.effects.effect1
 	busy: boolean = false
 
-	@ViewChild('fileButton', {static: true}) fileButton
+	@ViewChild('fileButton') fileButton
 
 	constructor(
 		public http: Http,
 		public afstore: AngularFirestore,
 		public user: UserService,
 		private alertController: AlertController,
-		private router: Router) { }
+		private router: Router,
+		public modalCtrl: ModalController,
+		private cameraPrev: CameraPreview ) { }
 
 	ngOnInit() {
+
+		this.startCamera()
+
 	}
+
+	async startCamera () {
+
+		const result = await this.cameraPrev.startCamera(this.cameraOpts);
+		console.log(result)
+	}
+
+	switchCamera () {
+		this.cameraPrev.switchCamera()
+	}
+
+
+	async takePict () {
+		const result = await this.cameraPrev.takePicture(this.cameraPicOpts)
+		await this.cameraPrev.stopCamera()
+		this.picture = `data:image/jpeg;base64,${result}`
+	}
+
+	modalClose(){
+		console.log('closed')
+		this.modalCtrl.dismiss({
+			'dimissed': true
+		})
+	}
+
+
 
 	async createPost() {
 		this.busy = true

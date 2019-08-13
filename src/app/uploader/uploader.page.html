@@ -1,6 +1,9 @@
 <ion-header>
+	
 	<ion-toolbar mode="ios">
+		<ion-label class="ion-padding-start" (click)="modalClose()" >Cancel</ion-label>
 		<ion-title>Upload</ion-title>
+		<ion-label slot="end" class="ion-padding-end" (click)="nextModalStep()" color="primary">Next</ion-label>
 	</ion-toolbar>
 </ion-header>
 
@@ -10,7 +13,19 @@
 	<app-loading *ngIf="busy"></app-loading>
 
 	<div class="center" *ngIf="!busy">
-		<div class="camera"></div>
+
+		<div *ngIf="!picture">
+			<div class=""></div>
+		</div>
+
+
+
+
+
+
+
+
+	<!-- 	
 
 		<input type="file" *ngIf="!imageURL" (change)="fileChanged($event)" class="filebtn" #fileButton />
 
@@ -51,4 +66,6 @@
 
 		</div>
 	</div>
+
+	-->
 </ion-content>
