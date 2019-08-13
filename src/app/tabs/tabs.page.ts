@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonTabs, ModalController } from '@ionic/angular';
+import { IonTabs } from '@ionic/angular';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
-import { UploaderPage } from '../uploader/uploader.page'
-
 
 @Component({
   selector: 'app-tabs',
@@ -14,10 +12,7 @@ export class TabsPage implements OnInit {
 
 	@ViewChild('tabs', {static: true}) tabs: IonTabs
 
-	constructor(
-		private user: UserService, 
-		private router: Router, 
-		public modalCtrl: ModalController) { }
+	constructor(private user: UserService, private router: Router) { }
 
 	ngOnInit() {
 		if(!this.user.isAuthenticated ){
@@ -25,13 +20,6 @@ export class TabsPage implements OnInit {
 		} 
 		
 		this.tabs.select('feed')
-	}
-
-	async uploadModal() {
-		const modal = await this.modalCtrl.create({
-			component: UploaderPage
-		});
-		return await modal.present()
 	}
 
 	uName: string = this.user.getUsername()

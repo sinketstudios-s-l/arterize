@@ -6,20 +6,14 @@ import { IonicModule } from '@ionic/angular';
 
 import { TabsPage } from './tabs.page';
 import { TabsRoutingModule } from './tabs.router.module'
-import { UploaderPage } from '../uploader/uploader.page';
-import { UploaderPageModule } from '../uploader/uploader.module';
 
 
 @NgModule({
-  entryComponents: [
-    UploaderPage
-  ],
   imports: [
     CommonModule,
     FormsModule,
 	IonicModule,
-  TabsRoutingModule,
-  UploaderPageModule
+	TabsRoutingModule
   ],
   declarations: [TabsPage]
 })

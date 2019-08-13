@@ -18,7 +18,6 @@ import { AuthService } from './auth.service';
 import { ShareModule } from './share.module';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -31,14 +30,14 @@ import { FormsModule } from '@angular/forms';
 	  AngularFirestoreModule.enablePersistence(),
 	  HttpModule,
 	  ShareModule,
-	  FormsModule,
-	  
+	  FormsModule
 	],
   providers: [
+    StatusBar,
     SplashScreen,
 	{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 	UserService,
-	AuthService,
+	AuthService
   ],
   bootstrap: [AppComponent]
 })
