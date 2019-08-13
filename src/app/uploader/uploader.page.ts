@@ -47,7 +47,7 @@ export class UploaderPage implements OnInit {
 	activeEffect: string = this.effects.effect1
 	busy: boolean = false
 
-	@ViewChild('fileButton') fileButton
+	@ViewChild('cameraPreview', {static: true}) cameraPreview
 
 	constructor(
 		public http: Http,
@@ -130,7 +130,7 @@ export class UploaderPage implements OnInit {
 	}
 
 	uploadFile() {
-		this.fileButton.nativeElement.click()
+
 	}
 
 	fileChanged(event) {
