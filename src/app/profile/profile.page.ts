@@ -18,6 +18,10 @@ export class ProfilePage implements OnInit {
 	posts
 	username: string
 	profilePic: string
+	
+	followersCount: number
+	followingCount: number
+	postCount: number
 
 	constructor(private afs: AngularFirestore, private user: UserService, private router: Router, public modalCtrl: ModalController) {
 		this.mainuser = afs.doc(`users/${user.getUID()}`)
@@ -25,6 +29,9 @@ export class ProfilePage implements OnInit {
 			this.posts = event.posts
 			this.username = event.username
 			this.profilePic = event.profilePic
+			this.followingCount = event.followingCount
+			this.followersCount = event.followersCount
+			this.postCount = event.postCount
 		})
 	}
 

@@ -6,11 +6,11 @@
 
 <ion-content padding>
 
-  <ion-item *ngFor="let user of users" (click)="userProf($event)">
-    <ion-avatar>
-      <img src="https://ucarecdn.com/{{ user.profilePic }}" alt="">
+  <ion-item *ngFor="let user of users" lines="none" (click)="userProf($event)" >
+    <ion-avatar slot="start">
+      <img src="{{ user.profilePic }}" alt="">
     </ion-avatar>
-    <ion-label id="{{user.username}}">
+    <ion-label id="{{user.username}}" class="ion-padding-left">
       
           {{user.username}}
 

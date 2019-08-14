@@ -18,6 +18,8 @@ export class RegisterPage implements OnInit {
 	password: string = ""
 	cpassword: string = ""
 
+	picture: string ="https://firebasestorage.googleapis.com/v0/b/arterize-38b68.appspot.com/o/default-user.jpg?alt=media&token=8d35f9c7-54d2-4147-a6b2-4f1984f432e8"
+
 	constructor(
 		public afAuth: AngularFireAuth,
 		public afstore: AngularFirestore,
@@ -48,8 +50,10 @@ export class RegisterPage implements OnInit {
 		try {
 			const res = await this.afAuth.auth.createUserWithEmailAndPassword(username + '@arterize.es', password)
 
+
 			this.afstore.doc(`users/${res.user.uid}`).set({
-				username
+				username,
+				'profilePic': this.picture
 			})
 
 			this.user.setUser({

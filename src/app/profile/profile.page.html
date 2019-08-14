@@ -14,11 +14,13 @@
 	<div id="profile-info" *ngIf="username">
 		<ion-grid>
 			<ion-row>
-				<ion-col size="12" class="user-image">
-					<ion-img class="userImgProf" src="https://ucarecdn.com/{{ profilePic }}/-/scale_crop/200x200/center/"></ion-img>
+				<ion-col size="4" class="user-image">
+					<ion-avatar class="userImgProf"> 
+						<ion-img src="{{ profilePic }}"></ion-img>
+					</ion-avatar>
 				</ion-col>
-				<ion-col size="12">
-					<ion-button class="followBtn" shape="round" color="primary" >Follow</ion-button> 
+				<ion-col size="4">
+					<ion-button class="followBtn" >Follow</ion-button> 
 				</ion-col>
 			</ion-row>
 		</ion-grid>
@@ -27,15 +29,15 @@
 	<div class="userStats">
 		<ion-row>
 			<ion-col size="4">
-				<span>3</span><br>
+				<span>{{ postCount }}</span><br>
 				<span class="text-muted">posts</span>
 			</ion-col>
 			<ion-col size="4">
-				<span>112 k</span><br>
+				<span>{{ followersCount }}</span><br>
 				<span class="text-muted">followers</span>
 			</ion-col>
 			<ion-col size="4">
-				<span>23</span><br>
+				<span>{{ followingCount }}</span><br>
 				<span class="text-muted">following</span>
 			</ion-col>
 		</ion-row>
