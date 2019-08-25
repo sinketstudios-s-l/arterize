@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore'
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { EditProfilePage } from '../edit-profile/edit-profile.page';
+
 
 @Component({
 	selector: 'app-page',
@@ -22,6 +23,12 @@ export class ProfilePage implements OnInit {
 	followersCount: number
 	followingCount: number
 	postCount: number
+	
+	email: string
+	name: string
+	link: string
+	bio: string
+
 
 	constructor(private afs: AngularFirestore, private user: UserService, private router: Router, public modalCtrl: ModalController) {
 		this.mainuser = afs.doc(`users/${user.getUID()}`)
@@ -32,8 +39,20 @@ export class ProfilePage implements OnInit {
 			this.followingCount = event.followingCount
 			this.followersCount = event.followersCount
 			this.postCount = event.postCount
+			this.email = event.email
+			this.name = event.name
+			this.link = event.link
+			this.bio = event.biography
 		})
 	}
+
+
+
+	ngOnInit() {
+
+	}
+
+
 
 	ngOnDestroy() {
 		this.sub.unsubscribe()
@@ -44,8 +63,7 @@ export class ProfilePage implements OnInit {
 		this.router.navigate(['/tabs/post/' + postID.split('/')[0]])
 	}
 
-	ngOnInit() {
-	}
+	
 
 	async editProfModal(){
 		const result = await this.modalCtrl.create({

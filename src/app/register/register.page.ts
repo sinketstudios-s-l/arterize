@@ -20,6 +20,8 @@ export class RegisterPage implements OnInit {
 
 	picture: string ="https://firebasestorage.googleapis.com/v0/b/arterize-38b68.appspot.com/o/default-user.jpg?alt=media&token=8d35f9c7-54d2-4147-a6b2-4f1984f432e8"
 
+	role: number
+
 	constructor(
 		public afAuth: AngularFireAuth,
 		public afstore: AngularFirestore,
@@ -53,7 +55,17 @@ export class RegisterPage implements OnInit {
 
 			this.afstore.doc(`users/${res.user.uid}`).set({
 				username,
-				'profilePic': this.picture
+				'profilePic': this.picture,
+				'postCount' : 0,
+				'followersCount' : 0,
+				'followingCount' : 0,
+				'accVer': false,
+				'email': null,
+				'name': username,
+				'biography': "This is default Arterize biography.",
+				'link': null,
+				role: 0
+
 			})
 
 			this.user.setUser({

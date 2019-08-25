@@ -63,7 +63,7 @@ export class EditProfilePage {
 	}
 
 	updateProfilePic() {
-
+		console.log('profile img')
 	}
 
 	uploadPic(event) {
@@ -99,9 +99,7 @@ export class EditProfilePage {
 
 	async updateDetails() {
 		this.busy = true
-
 		
-
 		try {
 			await this.user.reAuth(this.user.getUsername(), this.password)
 		} catch(error) {
@@ -124,8 +122,10 @@ export class EditProfilePage {
 		this.busy = false
 
 		
+		this.modalCtrl.dismiss()
 
-		this.router.navigate(['/tabs/profile'])
+		console.log('updated ' + this.username)
+		
 	}
 
 }

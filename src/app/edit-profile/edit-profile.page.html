@@ -18,8 +18,8 @@
 
 		<input type="file" #fileBtn class="filebtn" (change)="uploadPic($event)" />
 
-		<ion-avatar class="img-profile-pic ">
-			<ion-img class="profile-pic" (click)="updateProfilePic()" src=" ../../assets/shape.jpg "></ion-img>
+		<ion-avatar class="img-profile-pic " (click)="updateProfilePic()">
+			<ion-img class="profile-pic" src="{{ profilePic }}"></ion-img>
 		</ion-avatar>
 
 

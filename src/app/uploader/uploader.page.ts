@@ -50,6 +50,38 @@ export class UploaderPage implements OnInit {
 
 
 
+// ROW DEVICE USER GALLERY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// UPLOAD POST
+
 	async createPost() {
 		this.busy = true
 

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ChatsService, chat } from '../chats.service'
+import { AuthService } from '../auth.service';
+
+
+
 
 @Component({
   selector: 'app-messages',
@@ -8,10 +13,24 @@ import { Router } from '@angular/router';
 })
 export class MessagesPage implements OnInit {
 
-  constructor(public router: Router) { }
+
+  public chatRooms : any = [];
+
+  constructor(public router: Router, public chatService: ChatsService, public authServ: AuthService) { }
 
   ngOnInit() {
+    this.chatService.getChatRooms().subscribe( chats => {
+      
+      this.chatRooms = chats
+    
+    })
   }
+
+  OnLogout(){
+    this.authServ.logout()
+  }
+
+
 
   backBtn(){
     this.router.navigate(['../tabs/feed'])
