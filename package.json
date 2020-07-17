@@ -30,7 +30,7 @@
     "cordova-ios": "5.0.1",
     "core-js": "^2.5.4",
     "firebase": "^6.3.4",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "rxjs": "~6.5.1",
     "rxjs-compat": "^6.5.2",
     "tslib": "^1.9.0",
